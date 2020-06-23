@@ -1,0 +1,51 @@
+from random import choice
+class RandomizedSet(object):
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.dic = {}
+        self.lis = []
+
+    def insert(self, val):
+        """
+        Inserts a value to the set. Returns true if the set did not already contain the specified element.
+        :type val: int
+        :rtype: bool
+        """
+        if val in self.dic:
+            return False
+        else:
+            self.dic[val] = 1
+            self.lis.append(val)
+            return True
+
+    def remove(self, val):
+        """
+        Removes a value from the set. Returns true if the set contained the specified element.
+        :type val: int
+        :rtype: bool
+        """
+        if val in self.dic:
+            self.dic.pop(val)
+            self.lis.pop(self.lis.index(val))
+            return True
+        else:
+            return False
+
+    def getRandom(self):
+        return choice(self.lis)
+        """
+        Get a random element from the set.
+        :rtype: int
+        """
+        
+        
+
+
+# Your RandomizedSet object will be instantiated and called as such:
+# obj = RandomizedSet()
+# param_1 = obj.insert(val)
+# param_2 = obj.remove(val)
+# param_3 = obj.getRandom()
